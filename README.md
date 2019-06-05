@@ -30,7 +30,7 @@ pip install -r requirements.txt
 
 ### Using the Scripts
 
-Once installed and setup, you can now get started.
+Once installed and setup, you can now get started (i.e.)
 
 
 `python CL2019_LAB2.py`
@@ -49,6 +49,6 @@ YOUR OPTION?:
 ```
 ### POSTMAN
 
-I've also included a POSTMAN environment and collection in the `postman` folder or on thefollowing link:
+I've also included a POSTMAN collection as json file or link to import it.
 
 	https://www.getpostman.com/collections/a15b3e29d99f54a56d86
