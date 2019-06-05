@@ -1,0 +1,412 @@
+{
+	"info": {
+		"_postman_id": "35d62c00-6c9f-4ddc-bd44-5aa86505b255",
+		"name": "CL 2019 - DEVWKS 1671",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "LAB 1",
+			"item": [
+				{
+					"name": "TemplateID associated to deviceID - STEP 2 Subtask 1",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{vmanage}}:{{port}}/dataservice/system/device/vedges?deviceIP=10.5.0.1",
+							"protocol": "https",
+							"host": [
+								"{{vmanage}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"dataservice",
+								"system",
+								"device",
+								"vedges"
+							],
+							"query": [
+								{
+									"key": "deviceIP",
+									"value": "10.5.0.1"
+								},
+								{
+									"key": null,
+									"value": null
+								}
+							]
+						},
+						"description": "Get templateID associated to device ID (10.5.0.1: BR3-E1)"
+					},
+					"response": []
+				},
+				{
+					"name": "BannerId associated to TemplateId - STEP 2 Subtask 2",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{vmanage}}:{{port}}/dataservice/template/device/object/969340a0-0e2f-4dc2-81e8-bd4534ad7aa1",
+							"protocol": "https",
+							"host": [
+								"{{vmanage}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"dataservice",
+								"template",
+								"device",
+								"object",
+								"969340a0-0e2f-4dc2-81e8-bd4534ad7aa1"
+							]
+						},
+						"description": "Identify the banner template ID associated with the general template ID of the BR3-vEDGE"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Banner Template - STEP 3",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"templateName\": \"CL2019_LAB1\",\r\n  \"templateDescription\": \"CL2019 - Change Login banner and MOTD with APIs\",\r\n  \"templateType\": \"banner\",\r\n  \"templateMinVersion\": \"15.0.0\",\r\n  \"templateDefinition\": {\r\n    \"login\": {\r\n      \"vipObjectType\": \"object\",\r\n      \"vipType\": \"constant\",\r\n      \"vipValue\": \"WARNING - Authorized personnel only\",\r\n      \"vipVariableName\": \"banner_login\"\r\n    },\r\n    \"motd\": {\r\n      \"vipObjectType\": \"object\",\r\n      \"vipType\": \"constant\",\r\n      \"vipValue\": \"WELCOME CL2019 USERS\",\r\n      \"vipVariableName\": \"banner_motd\"\r\n    }\r\n  },\r\n  \"transitionInProgress\": true,\r\n  \"viewMode\": \"add\",\r\n  \"deviceType\": [\r\n    \"vedge-CSR-1000v\"\r\n  ],\r\n  \"deviceModels\": [\r\n    {\r\n      \"name\": \"vedge-CSR-1000v\",\r\n      \"displayName\": \"CSR1000v\",\r\n      \"deviceType\": \"vedge\",\r\n      \"isCliSupported\": false,\r\n      \"isCiscoDeviceModel\": true\r\n    }\r\n  ],\r\n  \"templateUrl\": \"/app/configuration/template/feature/templates/banner-15.0.0.html\",\r\n  \"factoryDefault\": false\r\n}\r\n"
+						},
+						"url": {
+							"raw": "https://{{vmanage}}:{{port}}/dataservice/template/feature/",
+							"protocol": "https",
+							"host": [
+								"{{vmanage}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"dataservice",
+								"template",
+								"feature",
+								""
+							]
+						},
+						"description": "Create a new banner template"
+					},
+					"response": [
+						{
+							"name": "Create Banner Template",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"templateName\": \"CL2019_LAB1\",\r\n  \"templateDescription\": \"CL2019 - Change Login banner and MOTD with APIs\",\r\n  \"templateType\": \"banner\",\r\n  \"templateMinVersion\": \"15.0.0\",\r\n  \"templateDefinition\": {\r\n    \"login\": {\r\n      \"vipObjectType\": \"object\",\r\n      \"vipType\": \"constant\",\r\n      \"vipValue\": \"WARNING - Authorized personnel only\",\r\n      \"vipVariableName\": \"banner_login\"\r\n    },\r\n    \"motd\": {\r\n      \"vipObjectType\": \"object\",\r\n      \"vipType\": \"constant\",\r\n      \"vipValue\": \"WELCOME CL2019 USERS\",\r\n      \"vipVariableName\": \"banner_motd\"\r\n    }\r\n  },\r\n  \"transitionInProgress\": true,\r\n  \"viewMode\": \"add\",\r\n  \"deviceType\": [\r\n    \"vedge-CSR-1000v\"\r\n  ],\r\n  \"deviceModels\": [\r\n    {\r\n      \"name\": \"vedge-CSR-1000v\",\r\n      \"displayName\": \"CSR1000v\",\r\n      \"deviceType\": \"vedge\",\r\n      \"isCliSupported\": false,\r\n      \"isCiscoDeviceModel\": true\r\n    }\r\n  ],\r\n  \"templateUrl\": \"/app/configuration/template/feature/templates/banner-15.0.0.html\",\r\n  \"factoryDefault\": false\r\n}\r\n"
+								},
+								"url": {
+									"raw": "https://198.18.1.10/dataservice/template/feature/",
+									"protocol": "https",
+									"host": [
+										"198",
+										"18",
+										"1",
+										"10"
+									],
+									"path": [
+										"dataservice",
+										"template",
+										"feature",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, must-revalidate"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 31 May 2019 14:38:53 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "73"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"templateId\": \"68a42e32-ace5-4e30-89c2-32badaa58915\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Banner Template into Device Template - STEP 4",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"templateId\": \"969340a0-0e2f-4dc2-81e8-bd4534ad7aa1\",\r\n    \"templateName\": \"BranchType3Template-CSR\",\r\n    \"templateDescription\": \"Branch Type 3 Template for CSR Routers\",\r\n    \"deviceType\": \"vedge-CSR-1000v\",\r\n    \"configType\": \"template\",\r\n    \"factoryDefault\": false,\r\n    \"policyId\": \"f73b285f-72eb-4f6d-865f-eae0e453bd8e\",\r\n    \"featureTemplateUidRange\": [],\r\n    \"connectionPreferenceRequired\": true,\r\n    \"connectionPreference\": true,\r\n    \"generalTemplates\": [\r\n        {\r\n            \"templateId\": \"3b30e089-2e26-44f1-b5b2-ac44f3f4279e\",\r\n            \"templateType\": \"aaa\"\r\n        },\r\n        {\r\n            \"templateId\": \"20d77367-06c8-4531-bad7-7e507b0c5829\",\r\n            \"templateType\": \"bfd-vedge\"\r\n        },\r\n        {\r\n            \"templateId\": \"7adf5770-deff-4472-9355-b4080b4594bd\",\r\n            \"templateType\": \"omp-vedge\"\r\n        },\r\n        {\r\n            \"templateId\": \"486d419f-4e6c-44a5-a6fb-7b5ccf94ff90\",\r\n            \"templateType\": \"security-vedge\"\r\n        },\r\n        {\r\n            \"templateId\": \"c70e876a-9ade-4e12-95e2-95fbd4691dbe\",\r\n            \"templateType\": \"system-vedge\",\r\n            \"subTemplates\": [\r\n                {\r\n                    \"templateId\": \"edf3d309-91d4-45be-98d9-cfd57a05a479\",\r\n                    \"templateType\": \"logging\"\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"templateId\": \"3a01b356-16c7-4115-a6c0-f068f88cd85c\",\r\n            \"templateType\": \"vpn-vedge\",\r\n            \"subTemplates\": [\r\n                {\r\n                    \"templateId\": \"cba76e7b-584a-4b70-b625-be1537dc3568\",\r\n                    \"templateType\": \"vpn-vedge-interface\"\r\n                },\r\n                {\r\n                    \"templateId\": \"8db75803-af2a-47f1-8fcc-15a6842e66eb\",\r\n                    \"templateType\": \"vpn-vedge-interface\"\r\n                },\r\n                {\r\n                    \"templateId\": \"383eb117-71a7-41f2-b2f0-def34b4780dd\",\r\n                    \"templateType\": \"vpn-vedge-interface\"\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"templateId\": \"f599dc46-d9a2-4f25-8426-bf57a896ccc7\",\r\n            \"templateType\": \"vpn-vedge\",\r\n            \"subTemplates\": [\r\n                {\r\n                    \"templateId\": \"f94a0615-228e-4c04-9ea7-77ad1ed30217\",\r\n                    \"templateType\": \"vpn-vedge-interface\"\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"templateId\": \"fe2bdbf8-a9d5-4cca-8f3a-c93ef7a3f01a\",\r\n            \"templateType\": \"vpn-vedge\",\r\n            \"subTemplates\": [\r\n                {\r\n                    \"templateId\": \"39e795a6-3248-4db6-9dff-7c01270f0612\",\r\n                    \"templateType\": \"vpn-vedge-interface\"\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"templateId\": \"4239ce22-f8e8-4413-b27e-1e1bab2a580a\",\r\n            \"templateType\": \"vpn-vedge\",\r\n            \"subTemplates\": [\r\n                {\r\n                    \"templateId\": \"56275e77-49ef-4333-9275-69906d3612ac\",\r\n                    \"templateType\": \"vpn-vedge-interface\"\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"templateId\": \"2da059de-0aec-455e-8540-11f44ea1bdb5\",\r\n            \"templateType\": \"vpn-vedge\",\r\n            \"subTemplates\": [\r\n                {\r\n                    \"templateId\": \"722cd655-7bd6-4ae0-bd50-6d75c39857f2\",\r\n                    \"templateType\": \"vpn-vedge-interface\"\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"templateId\": \"<NEW ID TO BE COMPLETED BY THE USER>\",\r\n            \"templateType\": \"banner\"\r\n        },\r\n        {\r\n            \"templateId\": \"2b57cd2a-9767-4d60-b999-46819d0f769c\",\r\n            \"templateType\": \"snmp\"\r\n        },\r\n        {\r\n            \"templateId\": \"955308f1-1314-4cb6-b552-fee2c69078c2\",\r\n            \"templateType\": \"virtual-application-utd\"\r\n        }\r\n    ],\r\n    \"securityPolicyId\": \"35e2d5f5-6f0d-4f43-8766-a80d048b47de\"\r\n}\r\n\r\n"
+						},
+						"url": {
+							"raw": "https://{{vmanage}}:{{port}}/dataservice/template/device/969340a0-0e2f-4dc2-81e8-bd4534ad7aa1",
+							"protocol": "https",
+							"host": [
+								"{{vmanage}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"dataservice",
+								"template",
+								"device",
+								"969340a0-0e2f-4dc2-81e8-bd4534ad7aa1"
+							]
+						},
+						"description": "Reference the new banner template into device template associated with BR3-vEDGE"
+					},
+					"response": []
+				},
+				{
+					"name": "Apply Device Template - STEP 5",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"deviceTemplateList\": [\r\n    {\r\n      \"templateId\": \"969340a0-0e2f-4dc2-81e8-bd4534ad7aa1\",\r\n      \"device\": [\r\n        {\r\n          \"csv-status\": \"complete\",\r\n          \"csv-deviceId\": \"CSR-3299b46e-90cd-4c5b-bebb-b6babfd8e0b1\",\r\n          \"csv-deviceIP\": \"10.5.0.1\",\r\n          \"csv-host-name\": \"BR3-CEDGE1\",\r\n          \"/40/VPN40_INTERFACE/interface/if-name\": \"GigabitEthernet7\",\r\n          \"/40/VPN40_INTERFACE/interface/ip/address\": \"10.5.40.1/24\",\r\n          \"/20/VPN20_INTERFACE/interface/if-name\": \"GigabitEthernet6\",\r\n          \"/20/VPN20_INTERFACE/interface/ip/address\": \"10.5.20.1/24\",\r\n          \"/10/VPN10_INTERFACE/interface/if-name\": \"GigabitEthernet4\",\r\n          \"/10/VPN10_INTERFACE/interface/ip/address\": \"10.5.0.1/24\",\r\n          \"/512/vpn-instance/ip/route/0.0.0.0/0/next-hop/VPN512_GW/address\": \"198.18.128.1\",\r\n          \"/512/VPN512_INTERFACE/interface/if-name\": \"GigabitEthernet1\",\r\n          \"/512/VPN512_INTERFACE/interface/ip/address\": \"198.18.134.107/18\",\r\n          \"/0/vpn-instance/ip/route/LTE_OPTIONAL_DEFAULT_IP/prefix\": \"0.0.0.0/0\",\r\n          \"/0/vpn-instance/ip/route/0.0.0.0/0/next-hop/MPLS_GW_IP_ADDR/address\": \"100.64.0.21\",\r\n          \"/0/vpn-instance/ip/route/0.0.0.0/0/next-hop/INET_GW_IP_ADDR/address\": \"100.64.2.9\",\r\n          \"/0/vpn-instance/ip/route/LTE_OPTIONAL_DEFAULT_IP/next-hop/LTE_OPTIONAL_GW_IP_ADDR/address\": \"100.64.4.9\",\r\n          \"/0/LTE_TLOC_INTERFACE/interface/if-name\": \"GigabitEthernet5\",\r\n          \"/0/LTE_TLOC_INTERFACE/interface/ip/address\": \"100.64.4.10/30\",\r\n          \"/0/MPLS_TLOC_INTERFACE/interface/if-name\": \"GigabitEthernet2\",\r\n          \"/0/MPLS_TLOC_INTERFACE/interface/ip/address\": \"100.64.0.22/30\",\r\n          \"/0/INET_TLOC_INTERFACE/interface/if-name\": \"GigabitEthernet3\",\r\n          \"/0/INET_TLOC_INTERFACE/interface/ip/address\": \"100.64.2.10/30\",\r\n          \"//system/host-name\": \"BR3-CEDGE1\",\r\n          \"//system/gps-location/latitude\": \"37.33\",\r\n          \"//system/gps-location/longitude\": \"-87.62\",\r\n          \"//system/system-ip\": \"10.5.0.1\",\r\n          \"//system/site-id\": \"500\",\r\n          \"csv-templateId\": \"969340a0-0e2f-4dc2-81e8-bd4534ad7aa1\"\r\n        }\r\n      ],\r\n      \"isEdited\": true,\r\n      \"isMasterEdited\": false\r\n    }\r\n  ]\r\n}\r\n"
+						},
+						"url": {
+							"raw": "https://{{vmanage}}:{{port}}/dataservice/template/device/config/attachfeature",
+							"protocol": "https",
+							"host": [
+								"{{vmanage}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"dataservice",
+								"template",
+								"device",
+								"config",
+								"attachfeature"
+							]
+						},
+						"description": "Re-Apply the template"
+					},
+					"response": []
+				},
+				{
+					"name": "BannerId associated to TemplateId - STEP 6",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{vmanage}}:{{port}}/dataservice/template/device/object/969340a0-0e2f-4dc2-81e8-bd4534ad7aa1",
+							"protocol": "https",
+							"host": [
+								"{{vmanage}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"dataservice",
+								"template",
+								"device",
+								"object",
+								"969340a0-0e2f-4dc2-81e8-bd4534ad7aa1"
+							]
+						},
+						"description": "Identify the banner template ID associated with the general template ID of the BR3-vEDGE"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "LAB 2 - Optional",
+			"item": [
+				{
+					"name": "De-activate policy - STEP 6 Subtask 2",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n}"
+						},
+						"url": {
+							"raw": "https://{{vmanage}}/dataservice/template/policy/vsmart/deactivate/43ff7e93-8551-457c-b480-3ad6cba9d3e3",
+							"protocol": "https",
+							"host": [
+								"{{vmanage}}"
+							],
+							"path": [
+								"dataservice",
+								"template",
+								"policy",
+								"vsmart",
+								"deactivate",
+								"43ff7e93-8551-457c-b480-3ad6cba9d3e3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Activate policy - STEP 6 Subtask 3",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"isEdited\": false\n}"
+						},
+						"url": {
+							"raw": "https://{{vmanage}}/dataservice/template/policy/vsmart/activate/43ff7e93-8551-457c-b480-3ad6cba9d3e3",
+							"protocol": "https",
+							"host": [
+								"{{vmanage}}"
+							],
+							"path": [
+								"dataservice",
+								"template",
+								"policy",
+								"vsmart",
+								"activate",
+								"43ff7e93-8551-457c-b480-3ad6cba9d3e3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Authentication - STEP 1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "j_username",
+							"value": "{{j_username}}",
+							"type": "text"
+						},
+						{
+							"key": "j_password",
+							"value": "{{j_password}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://{{vmanage}}:{{port}}/j_security_check",
+					"protocol": "https",
+					"host": [
+						"{{vmanage}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"j_security_check"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"id": "f06f5280-6a5c-461b-9f4c-36de57410b49",
+			"key": "vmanage",
+			"value": "198.18.1.10",
+			"type": "string"
+		},
+		{
+			"id": "744d103e-a7b7-451a-869c-780632f3322e",
+			"key": "j_username",
+			"value": "admin",
+			"type": "string"
+		},
+		{
+			"id": "abe5ddae-0def-42c9-aa55-3a9a5dbe9059",
+			"key": "j_password",
+			"value": "admin",
+			"type": "string"
+		},
+		{
+			"id": "9d367446-f6c9-44ad-8fa7-85d13e9b0d1d",
+			"key": "port",
+			"value": "443",
+			"type": "string"
+		}
+	]
+}
