@@ -4,4 +4,4 @@ This repository contains code examples and Lab Guide used for DEVWKS-1671 Progra
 
 ## Requirements
 
-test
+The API Postman Collection and Environment requires the installation of Postman.
