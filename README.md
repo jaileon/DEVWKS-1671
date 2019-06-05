@@ -51,4 +51,4 @@ YOUR OPTION?:
 
 I've also included a POSTMAN collection as json file or link to import it.
 
-	https://www.getpostman.com/collections/a15b3e29d99f54a56d86
+<https://www.getpostman.com/collections/a15b3e29d99f54a56d86>
