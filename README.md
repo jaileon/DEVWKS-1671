@@ -7,7 +7,7 @@ This repository contains code examples and Lab Guide used for DEVWKS-1671 Progra
 To run the Labs on this workshop you will need.
 
 * Postman
-* Python 3.6+
+* Python 3.7+
 
 
 ### Install and Setup
@@ -17,6 +17,11 @@ Clone the code to your local machine.
 ```
 git clone https://github.com/jaileon/DEVWKS-1671.git
 cd DEVWKS-1671
+```
+Install virtual environment 
+
+```
+sudo pip install virtualenv
 ```
 
 Setup Python Virtual Environment (requires Python 3.7+)
