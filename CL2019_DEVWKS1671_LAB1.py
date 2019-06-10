@@ -64,10 +64,10 @@ def clearScreen():
 # export VMANAGE_PWD="admin"
 # Another option is to pass the login variables as parameter when you call the Program.
 # Another option is to use input and ask the user for variables.
-vmanage_host = "198.18.1.10"
-vmanage_port = "443"
-vmanage_username = "admin"
-vmanage_password = "admin"
+vmanage_host = environ.get("VMANAGE_HOST")
+vmanage_port = environ.get("VMANAGE_PORT")
+vmanage_username = environ.get("VMANAGE_USERNAME")
+vmanage_password = environ.get("VMANAGE_PWD")
 vmanage_session = rest_api(vmanage_host, vmanage_port, vmanage_username, vmanage_password)
 vmanage_session.login()
 
