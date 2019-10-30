@@ -15,7 +15,11 @@ To run the Labs on this workshop you will need.
 Clone the code to your local machine.
 
 ```
+<<<<<<< HEAD
 git clone https://github.com/marcejgg/DEVWKS-1671.git
+=======
+git clone https://github.com/jaileon/DEVWKS-1671.git
+>>>>>>> a6223c6f7dcbf3349c26089051ac85619c9b9a20
 cd DEVWKS-1671
 ```
 Install virtual environment 
@@ -38,7 +42,11 @@ pip install -r requirements.txt
 Once installed and setup, you can now get started (i.e.)
 
 
+<<<<<<< HEAD
 `python 2_CL2019_DEVWKS1671_LAB2.py`
+=======
+`python CL2019_LAB2.py`
+>>>>>>> a6223c6f7dcbf3349c26089051ac85619c9b9a20
 
 OUTPUT
 
@@ -56,4 +64,8 @@ YOUR OPTION?:
 
 I've also included a POSTMAN collection as json file or link to import it.
 
+<<<<<<< HEAD
 <https://www.getpostman.com/collections/12a27cd87b330ea33f90>
+=======
+<https://www.getpostman.com/collections/a15b3e29d99f54a56d86>
+>>>>>>> a6223c6f7dcbf3349c26089051ac85619c9b9a20
